@@ -1,6 +1,6 @@
-#ifndef _List_H_
+#ifndef _List_h
 
-#define _List_H_
+#define _List_h
 
 typedef int ElementType;
 struct Node;
@@ -21,4 +21,4 @@ Position First( List L );
 Position Advance( Position P );
 ElementType Retrieve( Position P );
 
-#endif  /* _List_H_ */
+#endif  /* _List_h */

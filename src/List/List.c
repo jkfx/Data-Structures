@@ -27,3 +27,72 @@ Position Find( ElementType X, List L ) {
     }
     return P;
 }
+
+/* Delete first occurrence of X from a list */
+/* Assume use of a header node */
+void Delete( ElementType X, List L ) {
+    Position P, TmpCell;
+    P = FindPrevious( X, L );
+    if ( !IsLast( P, L ) ) {    /* Assumption of header use */
+        TmpCell = P->Next;      /* X is found; delete it */
+        P->Next = TmpCell->Next;    /* Bypass deleted cell */
+        free(TmpCell);
+    }
+}
+
+/* If X is not found, then Next field of returned */
+/* Position is NULL */
+/* Assumes a header */
+Position FindPrevious( ElementType X, List L ) {
+    Position P;
+    P = L;
+    while( P->Next != NULL && P->Next->Element != X ) {
+        P = P->Next;
+    }
+    return P;
+}
+
+/* Insert (after legal position P) */
+/* Header implementation assumed */
+/* Parameter L is unuserd in this implementation */
+void Insert( ElementType X, List L, Position P ) {
+    Position TmpCell;
+
+    TmpCell = malloc( sizeof( struct Node ) );
+    if ( TmpCell == NULL ) {
+        // FatalError("Out of space!!!");
+        printf("Out of space!!!\n");
+        return;
+    }
+
+    TmpCell->Element = X;
+    TmpCell->Next = P->Next;
+    P->Next = TmpCell;
+}
+
+/* Correct DeleteList algorithm */
+void DeleteList( List L ) {
+    Position P, Tmp;
+
+    P = L->Next;    /* Header assumed */
+    L->Next = NULL;
+    while( P != NULL ) {
+        Tmp = P->Next;
+        free( P );
+        P = Tmp;
+    }
+}
+
+int main() {
+    List list = (PtrToNode)malloc(sizeof(struct Node));
+    list->Next = NULL;
+    Position P;
+    Insert(11, list, list);
+    P = Find(11, list);
+    Insert(22, list, P);
+    Delete(11, list);
+    P = Find(22, list);
+    printf("%d\n", P->Element);
+    system("pause");
+    return 0;
+}
