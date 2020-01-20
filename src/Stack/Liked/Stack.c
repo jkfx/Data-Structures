@@ -97,14 +97,3 @@ void Pop(Stack S)
         free(FirstCell);
     }
 }
-
-int main()
-{
-    Stack S = CreateStack();
-    Push(11, S);
-    Push(22, S);
-    ElementType element = Top(S);
-    printf("%d\n", element);
-    system("pause");
-    return 0;
-}

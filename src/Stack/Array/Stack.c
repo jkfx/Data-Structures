@@ -3,7 +3,7 @@
 #include "Stack.h"
 
 #define EmptyTOS (-1)
-#define MinStackSize (5)
+#define MinStackSize (8)
 
 struct StackRecord
 {
@@ -24,7 +24,8 @@ Stack CreateStack(int MaxElements)
     if (S->Array == NULL)
         printf("%s\n", "Out of space!!!");
     S->Capacity = MaxElements;
-    MakeEmpty(S);
+    S->TopOfStack = -1;
+    MakeEmpty(S); 
     return S;
 }
 
@@ -42,10 +43,16 @@ int IsEmpty(Stack S)
     return S->TopOfStack == EmptyTOS;
 }
 
+int IsFull(Stack S)
+{
+    return S->TopOfStack + 1 == S->Capacity;
+}
+
 void Push(ElementType X, Stack S)
 {
     if (IsFull(S))
-        Error("Full stack");
+        // Error("Full stack");
+        printf("Full stack");
     else
         S->Array[++S->TopOfStack] = X;
 }
@@ -54,14 +61,16 @@ ElementType Top(Stack S)
 {
     if (!IsEmpty(S))
         return S->Array[S->TopOfStack];
-    Error("Empty stack");
+    // Error("Empty stack");
+    printf("Empty stack");
     return 0; /* Return value used to avoid warning */
 }
 
 void Pop(Stack S)
 {
     if (IsEmpty(S))
-        Error("Empty stack");
+        // Error("Empty stack");
+        printf("Empty stack");
     else
         S->TopOfStack--;
 }
@@ -70,7 +79,8 @@ ElementType TopAndPop(Stack S)
 {
     if (!IsEmpty(S))
         return S->Array[S->TopOfStack--];
-    Error("Empty stack");
+    // Error("Empty stack");
+    printf("Empty stack");
     return 0; /* Return value used to avoid warning */
 }
 
