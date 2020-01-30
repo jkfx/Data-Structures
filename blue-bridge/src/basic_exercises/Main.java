@@ -1,18 +1,14 @@
 package basic_exercises;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.math.BigDecimal;
 
 public class Main {
 
 	public static void main(String[] args) {
-		Scanner scn = new Scanner(System.in);
-		int n = scn.nextInt();
-		int[] arr = new int[n];
-		for (int i = 0; i < n; i++)
-			arr[i] = scn.nextInt();
-		Arrays.sort(arr);
-		for (int i = 0; i < n; i++)
-			System.out.print(arr[i]+" ");
+		BigDecimal d1 = new BigDecimal("3.1415926535");
+		BigDecimal d2 = new BigDecimal("2.7182818284");
+		BigDecimal d3 = d1.divide(d2, 10, BigDecimal.ROUND_UP);
+		System.out.println(3.1415926535 / 2.7182818284);
+		System.out.println(d3);
 	}
 }

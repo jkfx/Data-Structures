@@ -56,7 +56,7 @@ Position Find(ElementType Key, HashTable H)
 
     CollisionNum = 0;
     CurrentPos = Hash(Key, H->TableSize);
-    while (H->TheCells[CurrentPos].Info != Empty && strcmp(H->TheCells[CurrentPos].Element, Key)) /* while 内的判断条件很重要，不能改变顺序 */
+    while (H->TheCells[CurrentPos].Info != Empty && H->TheCells[CurrentPos].Element != Key) /* while 内的判断条件很重要，不能改变顺序 */
     {
         CurrentPos += 2 * ++CollisionNum - 1; /* 乘以 2 实际上就是进行一位二进制进位*/
         if (CurrentPos >= H->TableSize)
@@ -80,10 +80,8 @@ void Insert(ElementType Key, HashTable H)
 
 Index Hash(ElementType Key, int TableSize)
 {
-    unsigned int HashVal = 0;
-    while (*Key != '\0')
-        HashVal = (HashVal << 5) + *Key++;
-    return HashVal % TableSize;
+
+    return Key % 10;
 }
 
 int NextPrime(int n)
@@ -97,6 +95,29 @@ int NextPrime(int n)
         if (i == (int)sqrt(n))
             return n;
     }
+}
+
+int PreviousPrimer(int n)
+{
+    int i, j;
+    for (i = n; i > 1; i--)
+    {
+        for (j = 2; j < i; j++)
+            if (n % j == 0)
+                break;
+        if (j == i)
+            return i;
+    }
+}
+
+/* 双散列 */
+Index DoubleHash(ElementType Key, int TableSize)
+{
+    int R;
+    Index Pos;
+    R = PreviousPrimer(TableSize);
+    Pos = Hash(Key, TableSize);
+    return Pos - (R % Pos);
 }
 
 /* 再散列 */
@@ -124,11 +145,26 @@ int main()
 {
     HashTable H;
     H = InitializeTable(10);
-    Insert("jkfx", H);
-    Insert("jkfx", H);
-    Insert("a", H);
-    Insert("pause", H);
-    printf("%s\n", H->TheCells[Find("jkfx", H)].Element);
+    H->TableSize = 10;
+    Insert(4371, H);
+    Insert(1323, H);
+    Insert(6173, H);
+    Insert(4199, H);
+    Insert(4344, H);
+    Insert(9679, H);
+    Insert(1989, H);
+    printf("%d\n", Find(4371, H));
+    printf("%d\n", Find(6173, H));
+    printf("%d\n", Find(1989, H));
+    printf("%d\n", Find(9679, H));
+    while (1)
+    {
+        int n;
+        scanf("%d", &n);
+        printf("%d\n", 7 - (n % 7));
+        if (n == 990922)
+            return;
+    }
     system("pause");
     return 0;
 }
