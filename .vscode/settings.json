@@ -1,6 +1,10 @@
 {
     "files.associations": {
         "*.tcc": "c",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "malloc.h": "c",
+        "typeinfo": "cpp",
+        "string.h": "c",
+        "ssp.h": "c"
     }
 }

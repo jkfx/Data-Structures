@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #define MAX 10
-#define OF 999
+#define OF 9999
 
 typedef int ElementType;
 typedef struct Node *PtrToNode;
