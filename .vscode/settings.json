@@ -5,6 +5,9 @@
         "malloc.h": "c",
         "typeinfo": "cpp",
         "string.h": "c",
-        "ssp.h": "c"
+        "ssp.h": "c",
+        "limits": "c",
+        "type_traits": "c",
+        "leftheap.h": "c"
     }
 }

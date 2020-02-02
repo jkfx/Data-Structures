@@ -157,14 +157,6 @@ int main()
     printf("%d\n", Find(6173, H));
     printf("%d\n", Find(1989, H));
     printf("%d\n", Find(9679, H));
-    while (1)
-    {
-        int n;
-        scanf("%d", &n);
-        printf("%d\n", 7 - (n % 7));
-        if (n == 990922)
-            return;
-    }
     system("pause");
     return 0;
 }
