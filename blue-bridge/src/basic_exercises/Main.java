@@ -1,31 +1,21 @@
 package basic_exercises;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
-	public static void main(String[] args) {
-
-		Scanner scn = new Scanner(System.in);
-		int n = scn.nextInt();
-		int[] a = new int[n], b = new int[n];
-		for (int i = 0; i < n; i++) {
-			a[i] = scn.nextInt();
-		}
-		int m = scn.nextInt();
-		int[] res = new int[m];
-		for (int i = 0; i < m; i++) {
-			b=Arrays.copyOf(a, a.length);
-			int l = scn.nextInt();
-			int r = scn.nextInt();
-			int k = scn.nextInt();
-			Arrays.sort(b, l - 1, r);
-			res[i] = b[r - k];
-		}
-		for (int i = 0; i < m; i++) {
-			System.out.println(res[i]);
-		}
-
+	public static int f(String s)
+	{
+		return s.split("[\\+\\-*/]").length;
+	}
+	
+	public static void main(String[] args)
+	{
+		System.out.println(f("12+35*5-2*18/9-3")); //7
+		System.out.println(f("354*12+3-14/7*6")); //6
 	}
 }

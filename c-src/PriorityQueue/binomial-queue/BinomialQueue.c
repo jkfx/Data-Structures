@@ -39,6 +39,10 @@ BinQueue Merge(BinQueue H1, BinQueue H2)
     Carry = NULL;
     if (H1->CurrentSize + H2->CurrentSize > Capacity)
         exit(0);
+    if (H1 == H2)
+        return H1;
+    if (H1->CurrentSize < H2->CurrentSize)
+        return Merge(H2, H1);
     H1->CurrentSize += H2->CurrentSize;
     for (i = 0, j = 1; j <= H1->CurrentSize; i++, j *= 2)
     {
@@ -161,11 +165,11 @@ BinQueue Insert(ElementType X, BinQueue H)
 int main()
 {
     BinQueue bq;
-    bq=Initialize();
-    bq=Insert(23,bq);
-    bq=Insert(51,bq);
-    bq=Insert(24,bq);
-    bq=Insert(65,bq);
+    bq = Initialize();
+    bq = Insert(23, bq);
+    bq = Insert(51, bq);
+    bq = Insert(24, bq);
+    bq = Insert(65, bq);
     system("pause");
     return 0;
 }
