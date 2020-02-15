@@ -8,6 +8,7 @@
         "ssp.h": "c",
         "limits": "c",
         "type_traits": "c",
-        "leftheap.h": "c"
+        "leftheap.h": "c",
+        "stdlib.h": "c"
     }
 }

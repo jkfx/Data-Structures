@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #define NotAVertex (-1)
-#define MVNum (10) // 最大顶点数
+#define MVNum (16) // 最大顶点数
 typedef int VertexType;
 typedef int ArcType;
 
@@ -48,12 +48,12 @@ void CreateUDG(ALGraph G)
     // 输入一条边依附的两个顶点
     for (j = 0; j < G->arcnum; j++)
     {
-        scanf("%d%d%d", &v1, &v2, &weight);
+        scanf("%d%d", &v1, &v2);
         p1 = (ArcNode)malloc(sizeof(*p1));
         if (p1 == NULL)
             exit(0);
         p1->adjvex = v2;
-        p1->weight = weight;
+        //p1->weight = weight;
         p1->nextarc = G->vertices[v1].firstarc;
         G->vertices[v1].firstarc = p1;
         G->Indegree[v2] += 1;

@@ -51,7 +51,7 @@ void CreateUDN(AMGraph G)
         /* 输入一条边依附的顶点及权值 */
         scanf("%d%d%d", &v1, &v2, &w);
         G->arcs[v1][v2] = w;
-        // G->arcs[v2][v1]=G->arcs[i][j];
+        G->arcs[v2][v1] = w;
     }
 }
 
