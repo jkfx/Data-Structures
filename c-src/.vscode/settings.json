@@ -9,6 +9,7 @@
         "limits": "c",
         "type_traits": "c",
         "leftheap.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "stdexcept": "cpp"
     }
 }
