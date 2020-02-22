@@ -3,9 +3,10 @@
         {
             "name": "MinGW64",
             "intelliSenseMode": "gcc-x64",
-            "compilerPath": "D:/Developments/mingw64/bin/gcc.exe",
+            "compilerPath": "C:/Develop/mingw64/bin/gcc.exe",
             "includePath": [
-                "${workspaceFolder}"
+                "${workspaceFolder}",
+                "C:/Develop/fx-include"
             ],
             "cStandard": "c11"
         }

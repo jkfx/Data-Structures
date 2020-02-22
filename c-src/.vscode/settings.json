@@ -1,15 +1,9 @@
 {
     "files.associations": {
-        "*.tcc": "c",
-        "cstdlib": "cpp",
-        "malloc.h": "c",
-        "typeinfo": "cpp",
-        "string.h": "c",
-        "ssp.h": "c",
-        "limits": "c",
-        "type_traits": "c",
-        "leftheap.h": "c",
+        "stdio.h": "c",
+        "bfd.h": "c",
         "stdlib.h": "c",
-        "stdexcept": "cpp"
+        "cstdio": "c",
+        "list.h": "c"
     }
 }

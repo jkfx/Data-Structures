@@ -15,7 +15,8 @@
                 "-Wno-format",
                 "-finput-charset=UTF-8", //输入编译器文本编码 默认为UTF-8
                 "-fexec-charset=GB18030",
-                "-D _USE_MATH_DEFINES"
+                "-D_USE_MATH_DEFINES",
+                "-IC:/Develop/fx-include"   // 自写数据结构API
             ],
 
             "type": "shell",
